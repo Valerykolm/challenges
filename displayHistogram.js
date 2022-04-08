@@ -51,6 +51,7 @@ const displayHistogram = (roundsCount, rollDie) => {
         rotated[row][column] = matrix[column][columnsCount - row - 1] !== undefined ? matrix[column][columnsCount - row - 1] : '   ';
       }
     }
+    
     //const str = rotated.join('\n');
     return rotated;
   }
