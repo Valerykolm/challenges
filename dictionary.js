@@ -6,10 +6,19 @@
 const _ = require('lodash');
 
 const merge = (...objects) => {
-  function customizer(objValue, srcValue) {
+  /*function customizer(objValue, srcValue) {
     if (_.isArray(objValue)) {
       return objValue.concat(srcValue);
     }
+  }*/
+
+  function customizer(objValue, srcValue) {
+    const result = [objValue];
+    console.log(objValue);
+    if (srcValue !== undefined) {
+      const arrValue = result.push(srcValue);
+      return result;
+    } 
   }
   return _.mergeWith(...objects, customizer);
 }
@@ -20,7 +29,7 @@ console.log(merge({}, {}, {}));
 console.log(merge({ a: 1, b: 2 }, { a: 3 }));
 // { a: [1, 3], b: [2] }
  
-merge(
+/*merge(
     { a: 1, b: 2, c: 3 },
     {},
     { a: 3, b: 2, d: 5 },
